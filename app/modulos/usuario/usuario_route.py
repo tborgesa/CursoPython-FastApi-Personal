@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from modulos.usuario.usuario_service import UsuarioService
 
-usuario_router = APIRouter(prefix="/usuario", tags=["usuario"])
+usuario_router: APIRouter = APIRouter(prefix="/usuario", tags=["usuario"])
 
 @usuario_router.get("/autenticar")
 async def autenticar():

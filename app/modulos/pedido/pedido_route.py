@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-pedido_router = APIRouter(prefix="/pedidos", tags=["pedidos"])
+pedido_router: APIRouter = APIRouter(prefix="/pedidos", tags=["pedidos"])
 
 @pedido_router.get("/")
 async def pedidos():

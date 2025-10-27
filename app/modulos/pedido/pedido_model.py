@@ -2,14 +2,14 @@ from sqlalchemy import Column, String, Integer, Float, ForeignKey
 from repositorio.banco_dados import Base
 
 class Pedido(Base):
-    __tablename__ = "pedido"
+    __tablename__: str = "pedido"
 
-    id = Column("id", Integer, primary_key=True, autoincrement=True)
-    status = Column("status", String)
-    usuario = Column("usuario", ForeignKey("usuario.id"))
-    preco = Column("preco", Float)
+    id: int = Column("id", Integer, primary_key=True, autoincrement=True)
+    status: str = Column("status", String)
+    usuario: int = Column("usuario", ForeignKey("usuario.id"))
+    preco: float = Column("preco", Float)
 
-    def __init__(self, usuario):
+    def __init__(self, usuario: str):
         self.usuario = usuario
-        self.preco = 0
-        self.status = "PENDENTE"
+        self.preco: float = 0
+        self.status: str = "PENDENTE"
