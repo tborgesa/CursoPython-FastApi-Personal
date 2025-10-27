@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from modulos.usuario import usuario_service
+from modulos.usuario.usuario_service import UsuarioService
 
 usuario_router = APIRouter(prefix="/usuario", tags=["usuario"])
 
@@ -9,4 +9,4 @@ async def autenticar():
 
 @usuario_router.post("/criar_conta")
 async def criar_conta(email: str, senha: str, nome: str):
-    return await usuario_service.criar_usuario(email,senha,nome)
+    return await UsuarioService.criar_usuario(email,senha,nome)
