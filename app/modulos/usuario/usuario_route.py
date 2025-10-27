@@ -1,5 +1,6 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from modulos.usuario.usuario_service import UsuarioService
+from utilitarios.notification import Notification
 
 usuario_router: APIRouter = APIRouter(prefix="/usuario", tags=["usuario"])
 
@@ -9,4 +10,7 @@ async def autenticar():
 
 @usuario_router.post("/criar_conta")
 async def criar_conta(email: str, senha: str, nome: str):
-    return await UsuarioService.criar_usuario(email,senha,nome)
+    notification: Notification = await UsuarioService.criar_usuario(email,senha,nome)
+
+    if (notification.has_notification()):
+        raise HTTPException(status_code=400,detail=notification.get_notification())
