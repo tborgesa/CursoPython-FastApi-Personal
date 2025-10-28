@@ -9,5 +9,8 @@ def get_session():
         Session: sessionmaker = sessionmaker(bind=db)
         session = Session()
         yield session
+    except Exception:
+        session.rollback()
+        raise
     finally:
         session.close()
