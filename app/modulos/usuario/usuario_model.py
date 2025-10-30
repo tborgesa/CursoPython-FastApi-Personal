@@ -4,7 +4,7 @@ from repositorio.banco_dados import Base
 class Usuario(Base):
     __tablename__: str = "usuario"
 
-    id: int = Column("id", Integer, primary_key=True, autoincrement=True)
+    id_usuario: int = Column("id_usuario", Integer, primary_key=True, autoincrement=True)
     nome: str = Column("nome", String, nullable=False)
     email: str = Column("email", String, nullable=False)
     senha: str = Column("senha", String)
