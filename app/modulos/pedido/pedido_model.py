@@ -9,7 +9,7 @@ class Pedido(Base):
     usuario: int = Column("usuario", ForeignKey("usuario.id"))
     preco: float = Column("preco", Float)
 
-    def __init__(self, usuario: str):
+    def __init__(self, usuario: int):
         self.usuario = usuario
         self.preco: float = 0
         self.status: str = "PENDENTE"
